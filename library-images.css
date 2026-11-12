@@ -1,0 +1,17 @@
+/* Free-use architectural photography from Unsplash */
+.project .project-image{background-color:#16181c;background-repeat:no-repeat;background-size:cover}
+.project .p1{background-image:linear-gradient(0deg,rgba(7,8,10,.15),rgba(7,8,10,.02)),url("https://images.pexels.com/photos/36793974/pexels-photo-36793974/free-photo-of-modern-skyscraper-with-glass-facade-in-hyderabad.jpeg?auto=compress&cs=tinysrgb&w=1800"),url("assets/hero.png");background-position:center}
+.project .p2{background-image:linear-gradient(0deg,rgba(7,8,10,.12),rgba(7,8,10,.02)),url("https://images.unsplash.com/photo-1764837599929-100bd5890c57?auto=format&fit=crop&q=82&w=1400"),url("assets/hero.png");background-position:center}
+.project .p3{background-image:linear-gradient(0deg,rgba(7,8,10,.12),rgba(7,8,10,.02)),url("https://images.pexels.com/photos/36177447/pexels-photo-36177447/free-photo-of-modern-luxury-bathroom-with-glass-shower-enclosure.jpeg?auto=compress&cs=tinysrgb&w=1400"),url("assets/hero.png");background-position:center}
+.manifesto-media{background-image:url("https://images.unsplash.com/photo-1774069129040-05a274355383?auto=format&fit=crop&q=82&w=1800"),url("assets/hero.png");background-position:center;background-size:cover}
+
+/* Service photography appears as a restrained preview without changing the list layout */
+.service{isolation:isolate;overflow:hidden}
+.service:after{content:"";position:absolute;z-index:-1;right:5%;top:10%;width:28%;height:80%;background-position:center;background-size:cover;opacity:0;transform:translateX(30px) scale(1.04);filter:saturate(.75) contrast(1.05);transition:opacity .45s,transform .7s cubic-bezier(.16,1,.3,1);mask-image:linear-gradient(90deg,transparent,black 32%,black)}
+.service:hover:after{opacity:.32;transform:none}
+.service:nth-child(1):after,.service:nth-child(2):after{background-image:url("https://images.pexels.com/photos/36793974/pexels-photo-36793974/free-photo-of-modern-skyscraper-with-glass-facade-in-hyderabad.jpeg?auto=compress&cs=tinysrgb&w=900")}
+.service:nth-child(3):after,.service:nth-child(5):after{background-image:url("https://images.unsplash.com/photo-1764837599929-100bd5890c57?auto=format&fit=crop&q=76&w=900")}
+.service:nth-child(4):after{background-image:url("https://images.pexels.com/photos/36177447/pexels-photo-36177447/free-photo-of-modern-luxury-bathroom-with-glass-shower-enclosure.jpeg?auto=compress&cs=tinysrgb&w=900")}
+.service:nth-child(6):after{background-image:url("https://images.unsplash.com/photo-1651991372794-b1fcaaf4d634?auto=format&fit=crop&q=76&w=900")}
+@media(max-width:700px){.service:after{right:0;width:45%;opacity:.13;transform:none}.service:hover:after{opacity:.18}}
+@media(prefers-reduced-data:reduce){.service:after{display:none}}

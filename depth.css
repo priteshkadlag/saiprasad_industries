@@ -1,0 +1,84 @@
+.precision-image{transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.project:before{content:"";position:absolute;z-index:2;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,75,34,.2),transparent 28%);opacity:0;transition:opacity .4s}
+.project:hover:before{opacity:1}
+@media(prefers-reduced-motion:reduce){.kinetic-strip>div{animation:none}}
+
+/* Header and footer readability */
+.nav{height:104px}
+.nav.scrolled{height:82px}
+.brand{font-size:17px;letter-spacing:.1em}
+.brand small{font-size:9px;margin-top:8px}
+.nav nav{font-size:15px;gap:38px}
+.nav-cta{padding:14px 20px;font-weight:600}
+footer{font-size:14px;line-height:1.7;padding-top:62px;padding-bottom:62px}
+.footer-brand{font-size:23px;line-height:1.1}
+.footer-brand>div>span{font-size:10px;margin-top:7px}
+.footer-links{font-size:14px;gap:25px}
+.back-top{font-size:13px}
+.back-top{position:relative;display:inline-flex;align-items:center;justify-content:center;width:auto;height:auto;padding:8px 14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;color:#fff;white-space:nowrap;font:500 10px/1 var(--sans);letter-spacing:.09em;text-transform:uppercase;transition:color .3s,background .3s,border-color .3s,transform .3s cubic-bezier(.16,1,.3,1)}
+.back-top:hover{background:#ff4b22;color:#fff;border-color:#ff4b22;transform:translateY(-3px)}
+@keyframes backTopOrbit{to{transform:rotate(360deg)}}
+
+/* Hero collision fix */
+.hero{padding-bottom:58px}
+.hero-bottom{display:grid;grid-template-columns:minmax(260px,1fr) auto;gap:28px;align-items:end;padding-left:42%;margin-top:30px}
+.hero-bottom>p{align-self:center}
+.hero-bottom .actions{justify-self:end}
+.hero-spec{position:static;width:max-content;max-width:100%;margin:26px 0 0 auto;transform:none}
+.hero-spec>div{min-width:160px}
+
+@media(max-width:1100px){
+  .hero-bottom{padding-left:25%}
+  .hero-spec>div{min-width:145px}
+}
+@media(max-width:900px){
+  .nav{height:82px}.nav.scrolled{height:76px}
+  .nav nav{top:82px;font-size:16px}
+  .hero{padding-bottom:50px}
+  .hero-bottom{grid-template-columns:1fr;padding-left:0;gap:20px}
+  .hero-bottom .actions{justify-self:start}
+  .hero-spec{margin:28px 0 0;width:100%;grid-template-columns:repeat(3,1fr)}
+  .hero-spec>div{min-width:0}
+  footer{font-size:13px}
+}
+@media(max-width:560px){
+  .brand{font-size:14px}.brand small{font-size:8px}
+  .hero-bottom .actions{width:100%}
+  .hero-bottom .button{width:100%}
+  .hero-spec{grid-template-columns:1fr 1fr}
+  .hero-spec>div:last-child{grid-column:1/3}
+  .footer-brand{font-size:20px}
+  .footer-links{font-size:15px}
+  .back-top{padding:7px 12px;font-size:9px}
+}
+
+/* Opening brand sequence */
+body.is-loading{overflow:hidden}
+.site-loader{position:fixed;z-index:9999;inset:0;display:grid;place-items:center;background:#08090b;color:#fff;transition:transform .9s cubic-bezier(.76,0,.24,1),visibility .9s}
+.site-ready .site-loader{transform:translateY(-105%);visibility:hidden}
+.loader-grid{position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:10vw 10vw;mask-image:radial-gradient(circle at center,black,transparent 70%)}
+.loader-inner{position:relative;width:min(420px,78vw);display:flex;flex-direction:column;align-items:center;text-align:center}
+.loader-count{position:absolute;right:0;top:0;color:#ff4b22;font:500 10px var(--display);letter-spacing:.18em;animation:loaderFade .45s .15s both}
+.loader-logo.supplied-logo{--logo-h:170px;width:230px;height:170px;background-size:contain;background-position:center;opacity:0;transform:scale(.84) translateY(18px);animation:logoArrival .8s .12s cubic-bezier(.16,1,.3,1) forwards;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45))}
+.loader-name{margin-top:8px;overflow:hidden}.loader-name strong,.loader-name span{display:block;transform:translateY(120%);animation:loaderText .65s .52s cubic-bezier(.16,1,.3,1) forwards}.loader-name strong{font:600 clamp(28px,5vw,47px)/1 var(--display);letter-spacing:.05em}.loader-name span{margin-top:8px;color:#c7c7cb;font:500 clamp(14px,2vw,20px)/1 var(--display);letter-spacing:.32em;animation-delay:.62s}
+.loader-progress{width:100%;height:2px;margin-top:34px;overflow:hidden;background:rgba(255,255,255,.12)}.loader-progress i{display:block;width:100%;height:100%;background:#ff4b22;transform:translateX(-101%);animation:loaderProgress 1.35s .1s cubic-bezier(.65,0,.35,1) forwards}
+.loader-inner>p{margin:13px 0 0;color:#77777d;font-size:8px;text-transform:uppercase;letter-spacing:.2em;opacity:0;animation:loaderFade .45s .8s forwards}
+@keyframes logoArrival{to{opacity:1;transform:none}}@keyframes loaderText{to{transform:none}}@keyframes loaderProgress{to{transform:none}}@keyframes loaderFade{to{opacity:1}}@keyframes loaderCount{0%{content:"00"}35%{content:"38"}70%{content:"76"}100%{content:"100"}}
+@media(prefers-reduced-motion:reduce){.site-loader{transition-duration:.15s}.loader-logo.supplied-logo,.loader-name strong,.loader-name span,.loader-progress i,.loader-inner>p{animation:none;opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.back-top:before{animation:none}}
+
+/* Correct logo crop and scale in horizontal brand lockups */
+.brand{gap:15px}
+.brand-logo.supplied-logo{--logo-h:68px;width:52px;height:68px;flex:0 0 52px;background-size:auto 112px;background-position:center 1px;filter:drop-shadow(0 7px 12px rgba(0,0,0,.35))}
+.brand>span:last-child{font-size:18px;line-height:.95;letter-spacing:.045em}
+.brand>span:last-child small{margin-top:10px;font-size:9px;letter-spacing:.31em;color:#bfc0c4}
+.footer-brand{gap:17px;align-items:center}
+.footer-logo.supplied-logo{--logo-h:73px;width:56px;height:73px;flex:0 0 56px;background-size:auto 120px;background-position:center 1px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.38))}
+.footer-brand>div{font-size:24px;line-height:.92;letter-spacing:.035em}
+.footer-brand>div>span{margin-top:10px;font-size:10px;letter-spacing:.3em;color:#c2c3c7}
+@media(max-width:560px){
+  .brand{gap:10px}
+  .brand-logo.supplied-logo{--logo-h:57px;width:43px;height:57px;flex-basis:43px;background-size:auto 94px;background-position:center 0}
+  .brand>span:last-child{font-size:14px}.brand>span:last-child small{font-size:7px;margin-top:7px}
+  .footer-logo.supplied-logo{width:51px;height:67px;flex-basis:51px;background-size:auto 110px;background-position:center 0}
+}
