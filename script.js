@@ -9,7 +9,21 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.class
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!reduced){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 document.querySelectorAll('.magnetic').forEach(el=>{el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect();el.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.08}px,${(e.clientY-r.top-r.height/2)*.08}px)`});el.addEventListener('pointerleave',()=>el.style.transform='')});}
-document.querySelector('#quote-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const message=`Hello Saiprasad Glass & Aluminium,%0A%0AName: ${encodeURIComponent(data.get('name'))}%0APhone: ${encodeURIComponent(data.get('phone'))}%0AService: ${encodeURIComponent(data.get('service'))}%0AProject details: ${encodeURIComponent(data.get('details')||'Not specified')}`;window.open(`https://wa.me/919604363657?text=${message}`,'_blank','noopener')});
+const quoteForm=document.querySelector('#quote-form');
+if(quoteForm)quoteForm.addEventListener('submit',e=>{
+  e.preventDefault();
+  const data=new FormData(e.currentTarget);
+  const message=[
+    'Hello Saiprasad Industries,',
+    '',
+    `Name: ${String(data.get('name')||'').trim()}`,
+    `Phone: ${String(data.get('phone')||'').trim()}`,
+    `Required service: ${String(data.get('service')||'').trim()}`,
+    `Project details: ${String(data.get('details')||'Not specified').trim()||'Not specified'}`
+  ].join('\n');
+  const whatsappUrl=`https://wa.me/919604363657?text=${encodeURIComponent(message)}`;
+  window.location.assign(whatsappUrl);
+});
 document.querySelector('#year').textContent=new Date().getFullYear();
 
 // Subtle architectural depth, enabled only for precise pointers.
